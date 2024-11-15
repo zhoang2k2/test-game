@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [points, setPoints] = useState(5);
+  const [points] = useState(5);
   const [isStop, setIsStop] = useState(false);
   const [isStart, setIsStart] = useState(false);
   const [isAuto, setIsAuto] = useState(false);
