@@ -1,0 +1,31 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+  
+.container {
+  width: 800px;
+  margin: auto;
+}
+
+.game-container {
+  border: 3px solid #000;
+  width: 100%;
+  height: 800px;
+  position: relative;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 3px solid #D25732;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+}
