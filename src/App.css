@@ -1,20 +1,152 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
-  
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #000000;
+  color: #fff;
+
+  --primity: #00cfff;
+  --error: #ff3b3b;
+  --correct: #39ff14;
+  --warning: #fff700;
+  --card-color: #1E1E23;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: -45deg;
+  inherits: false;
+}
+
+.primity-color {
+  color: var(--primity);
+}
+
+.error-color {
+  color: var(--error);
+}
+
+.warning-color {
+  color: var(--warning);
+}
+
+.correct-color {
+  color: var(--correct);
+}
+
 .container {
   width: 800px;
   margin: auto;
 }
 
+.controller {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 25%;
+  margin-bottom: 10px;
+}
+
+.controller div:nth-child(1) {
+  width: 100px;
+}
+
+.controller input {
+  padding: 2.5px 7.5px;
+  border-radius: .5em;
+  width: 50%;
+}
+
+.controller input:focus {
+  outline: none;
+}
+
+.controller-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.button {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: #fff;
+  background-color: var(--card-color);
+  width: auto;
+  height: 30px;
+  display: flex;
+}
+
+.btn-content {
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-color);
+  white-space: nowrap;
+  gap: 10px;
+  width: 100%;
+  padding: 0 2.5px;
+}
+
+.btn-content::before,
+.btn-content::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  translate: -50% -50%;
+  top: 50%;
+  left: 50%;
+  /* background-image: conic-gradient(from var(--angle), transparent 20%, #00FFFF); */
+  pointer-events: none;
+  animation: spin 2s linear infinite;
+  border-radius: 5px;
+}
+
+.btn-content::before {
+  filter: blur(10px);
+}
+
+@keyframes spin {
+  from {
+    --angle: -45deg
+  }
+
+  to {
+    --angle: 315deg
+  }
+}
+
+.btn-content>span {
+  background-color: var(--card-color);
+  border-radius: 4.5px;
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
+  z-index: 100;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 14px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+
 .game-container {
-  border: 3px solid #000;
+  border: 3px solid #8b8b8b;
   width: 100%;
   height: 800px;
   position: relative;
+  background-color: var(--card-color);
 }
 
 .circle {
@@ -28,4 +160,53 @@
   align-items: center;
   position: absolute;
 
+}
+
+.status {
+  text-transform: uppercase;
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading div {
+  font-size: 48px;
+  text-align: center;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 0.5s infinite linear alternate;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+@keyframes l5 {
+  0% {
+    box-shadow: 20px 0 #fff, -20px 0 #0002;
+    background: #fff
+  }
+
+  33% {
+    box-shadow: 20px 0 #fff, -20px 0 #fff2;
+    background: #fff2
+  }
+
+  66% {
+    box-shadow: 20px 0 #fff2, -20px 0 #fff;
+    background: #fff2
+  }
+
+  100% {
+    box-shadow: 20px 0 #fff2, -20px 0 #fff;
+    background: #fff
+  }
 }
