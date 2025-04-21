@@ -48,4 +48,4 @@ export default tseslint.config({
   },
 })
 ```
-#test push with credential-manager
+#test 2nd time without login
